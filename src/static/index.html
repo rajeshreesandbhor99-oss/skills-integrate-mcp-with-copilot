@@ -8,20 +8,47 @@
   </head>
   <body>
     <header>
+      <div class="teacher-controls">
+        <button id="login-button" type="button">
+          <span aria-hidden="true">👤</span> Teacher login
+        </button>
+        <span id="teacher-status" class="hidden" aria-live="polite"></span>
+        <button id="logout-button" class="hidden" type="button">Log out</button>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
 
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <form id="login-form">
+        <h3 id="login-title">Teacher login</h3>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input id="username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <p id="login-error" class="error hidden" role="alert"></p>
+        <div class="dialog-actions">
+          <button id="cancel-login" class="secondary-button" type="button">Cancel</button>
+          <button type="submit">Sign in</button>
+        </div>
+      </form>
+    </dialog>
+
     <main>
       <section id="activities-container">
         <h3>Available Activities</h3>
+        <div id="message" class="hidden" role="status" aria-live="polite"></div>
         <div id="activities-list">
           <!-- Activities will be loaded here -->
           <p>Loading activities...</p>
         </div>
       </section>
 
-      <section id="signup-container">
+      <section id="signup-container" hidden>
         <h3>Sign Up for an Activity</h3>
         <form id="signup-form">
           <div class="form-group">
@@ -37,7 +64,6 @@
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <div id="message" class="hidden"></div>
       </section>
     </main>
 
